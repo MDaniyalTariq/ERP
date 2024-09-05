@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 const { Content } = Layout;
 
 export default function ErpLayout({ children }) {
-  const langDirection=useSelector(selectLangDirection)
+  const langDirection = useSelector(selectLangDirection);
 
   return (
     <ErpContextProvider>
@@ -18,7 +18,7 @@ export default function ErpLayout({ children }) {
           width: '100%',
           maxWidth: '1100px',
           minHeight: '600px',
-          direction:langDirection
+          direction: langDirection,
         }}
       >
         {children}
