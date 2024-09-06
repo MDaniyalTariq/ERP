@@ -25,8 +25,13 @@ import {
   ShopOutlined,
   FilterOutlined,
   WalletOutlined,
+  TeamOutlined,
   ReconciliationOutlined,
+  BuildOutlined, // Added for Supplier management
+  GlobalOutlined, // Added for Logistics
+  AreaChartOutlined,
 } from '@ant-design/icons';
+
 import { useSelector } from 'react-redux';
 import { selectLangDirection } from '@/redux/translate/selectors';
 
@@ -56,20 +61,11 @@ function Sidebar({ collapsible, isMobile = false }) {
       icon: <DashboardOutlined />,
       label: <Link to={'/'}>{translate('dashboard')}</Link>,
     },
+    // CRM Modules
     {
       key: 'customer',
       icon: <CustomerServiceOutlined />,
       label: <Link to={'/customer'}>{translate('customers')}</Link>,
-    },
-    {
-      key: 'people',
-      icon: <UserOutlined />,
-      label: <Link to={'/people'}>{translate('peoples')}</Link>,
-    },
-    {
-      key: 'company',
-      icon: <ShopOutlined />,
-      label: <Link to={'/company'}>{translate('companies')}</Link>,
     },
     {
       key: 'lead',
@@ -89,7 +85,7 @@ function Sidebar({ collapsible, isMobile = false }) {
     {
       key: 'quote',
       icon: <FileSyncOutlined />,
-      label: <Link to={'/quote'}>{translate('proforma invoices')}</Link>,
+      label: <Link to={'/quote'}>{translate('quotes')}</Link>,
     },
     {
       key: 'payment',
@@ -97,16 +93,7 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/payment'}>{translate('payments')}</Link>,
     },
 
-    {
-      key: 'product',
-      icon: <TagOutlined />,
-      label: <Link to={'/product'}>{translate('products')}</Link>,
-    },
-    {
-      key: 'categoryproduct',
-      icon: <TagsOutlined />,
-      label: <Link to={'/category/product'}>{translate('products_category')}</Link>,
-    },
+    // Financial Management
     {
       key: 'expenses',
       icon: <WalletOutlined />,
@@ -115,22 +102,97 @@ function Sidebar({ collapsible, isMobile = false }) {
     {
       key: 'expensesCategory',
       icon: <ReconciliationOutlined />,
-      label: <Link to={'/category/expenses'}>{translate('expenses_Category')}</Link>,
+      label: <Link to={'/category/expenses'}>{translate('expenses_category')}</Link>,
+    },
+    {
+      key: 'taxes',
+      icon: <ReconciliationOutlined />,
+      label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
     },
 
+    // Inventory Management
     {
-      label: translate('Settings'),
+      key: 'product',
+      icon: <TagOutlined />,
+      label: <Link to={'/product'}>{translate('products')}</Link>,
+    },
+    {
+      key: 'categoryproduct',
+      icon: <TagsOutlined />,
+      label: <Link to={'/category/product'}>{translate('product_categories')}</Link>,
+    },
+
+    // Human Resources
+    {
+      key: 'employee',
+      icon: <UserOutlined />,
+      label: <Link to={'/employee'}>{translate('employees')}</Link>,
+    },
+
+    // Purchase and Sales
+    {
+      key: 'purchaseOrder',
+      icon: <FileSyncOutlined />,
+      label: <Link to={'/purchase-order'}>{translate('purchase_orders')}</Link>,
+    },
+    {
+      key: 'salesOrder',
+      icon: <FileSyncOutlined />,
+      label: <Link to={'/sales-order'}>{translate('sales_orders')}</Link>,
+    },
+
+    // Supply Chain Management
+    {
+      key: 'supplier',
+      icon: <BuildOutlined />,
+      label: <Link to={'/supplier'}>{translate('suppliers')}</Link>,
+    },
+    {
+      key: 'inventory',
+      icon: <ContainerOutlined />,
+      label: <Link to={'/inventory'}>{translate('inventory')}</Link>,
+    },
+    {
+      key: 'logistics',
+      icon: <GlobalOutlined />,
+      label: <Link to={'/logistics'}>{translate('logistics')}</Link>,
+    },
+    {
+      key: 'purchaseRequest',
+      icon: <FileOutlined />,
+      label: <Link to={'/purchase-request'}>{translate('purchase_requests')}</Link>,
+    },
+    {
+      key: 'reports',
+      icon: <AreaChartOutlined />,
+      label: <Link to={'/reports'}>{translate('reports')}</Link>,
+    },
+
+    // Settings
+    {
+      label: translate('settings'),
       key: 'settings',
       icon: <SettingOutlined />,
       children: [
         {
-          key: 'generalSettings',
-          label: <Link to={'/settings'}>{translate('settings')}</Link>,
+          key: 'admin',
+          label: <Link to={'/admin'}>{translate('admin')}</Link>,
         },
-
+        {
+          key: 'branch',
+          label: <Link to={'/branch'}>{translate('branch')}</Link>,
+        },
+        {
+          key: 'generalSettings',
+          label: <Link to={'/settings'}>{translate('general_settings')}</Link>,
+        },
+        {
+          key: 'emailTemplates',
+          label: <Link to={'/email'}>{translate('email_templates')}</Link>,
+        },
         {
           key: 'paymentMode',
-          label: <Link to={'/payment/mode'}>{translate('payments_mode')}</Link>,
+          label: <Link to={'/payment/mode'}>{translate('payment_modes')}</Link>,
         },
         {
           key: 'taxes',
@@ -139,6 +201,10 @@ function Sidebar({ collapsible, isMobile = false }) {
         {
           key: 'about',
           label: <Link to={'/about'}>{translate('about')}</Link>,
+        },
+        {
+          key: 'advancedSettings',
+          label: <Link to={'/settings/advanced'}>{translate('advanced_settings')}</Link>,
         },
       ],
     },

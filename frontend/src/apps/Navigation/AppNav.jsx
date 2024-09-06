@@ -77,11 +77,11 @@ const AppNav = ({ translate }) => [
     icon: <TagsOutlined />,
     label: <Link to={'/category/product'}>{translate('product_category')}</Link>,
   },
-  // {
-  //   key: 'employee',
-  //   icon: <UserOutlined />,
-  //   label: <Link to={'/employee'}>{translate('employee')}</Link>,
-  // },
+  {
+    key: 'employee',
+    icon: <UserOutlined />,
+    label: <Link to={'/employee'}>{translate('employee')}</Link>,
+  },
 
   {
     label: translate('Settings'),
@@ -90,7 +90,7 @@ const AppNav = ({ translate }) => [
     children: [
       {
         key: 'admin',
-        // icon: <TeamOutlined />,
+        icon: <TeamOutlined />,
         label: <Link to={'/admin'}>{translate('Staff')}</Link>,
       },
       {
